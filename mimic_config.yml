@@ -1,0 +1,98 @@
+activation: torch.nn.LeakyReLU()
+average: weighted
+base_encoder: bionlp/bluebert_pubmed_mimic_uncased_L-12_H-768_A-12
+criterion: torch.nn.BCEWithLogitsLoss(reduction='none')
+data_path: ./data/
+dataset: mimic
+device: cuda
+end_model_batch_size: 128
+end_model_epochs: 20
+end_model_lr: 1e-4
+end_model_patience: 3
+end_model_weight_decay: 1e-4
+h_sizes:
+- 768
+- 256
+- 64
+- 19
+label_model: data_programming
+label_model_lr: 0.01
+label_model_n_epochs: 100
+max_num: 7000
+min_df: 0.001
+model_path: ./models/
+n_bootstrap: 100
+n_classes: 19
+n_jobs: 10
+ngram_range: !!python/tuple
+- 1
+- 1
+normalize_embeddings: false
+preds_path: ./data/results/
+q_update_interval: 50
+results_path: ./data/results/
+self_train_batch_size: 128
+self_train_lr: 1e-6
+self_train_patience: 3
+self_train_thresh: 1-2e-3
+self_train_weight_decay: 1e-4
+show_progress_bar: true
+target_00: found, unspecified, bacilli, bacteriological, examination, tubercle, tuberculosis,
+  histological, specified, sputum, microscopy, confirmed, infection, due, bacterial,
+  done, unknown, present, culture, histologically
+target_01: neoplasm, malignant, lymph, nodes, unspecified, sites, benign, cell, limb,
+  site, lymphoma, skin, leukemia, specified, carcinoma, disease, tumor, remission,
+  upper, lower
+target_02: type, unspecified, uncontrolled, disorders, deficiency, manifestations,
+  stated, metabolism, specified, mention, mellitus, diabetes, ii, juvenile, without,
+  goiter, disorder, vitamin, thyrotoxic, crisis
+target_03: unspecified, anemia, disease, deficiency, specified, anemias, blood, crisis,
+  hemolytic, thalassemia, iron, hereditary, due, thrombocytopenia, secondary, chronic,
+  without, cell, congenital, factor
+target_04: disorder, unspecified, type, episode, remission, dependence, schizophrenia,
+  abuse, specified, drug, disorders, current, acute, episodic, recent, depressive,
+  psychotic, affective, continuous, subchronic
+target_05: unspecified, eye, without, vision, migraine, disorders, impairment, intractable,
+  mention, disorder, elsewhere, status, classified, migrainosus, specified, associated,
+  ear, nerve, retinal, loss
+target_06: unspecified, disease, heart, infarction, chronic, artery, embolism, kidney,
+  thrombosis, stage, failure, cerebrovascular, without, venous, episode, care, effects,
+  myocardial, syndrome, cerebral
+target_07: due, unspecified, pneumonia, acute, chronic, respiratory, lung, pulmonary,
+  virus, sinusitis, influenza, obstruction, bronchitis, diseases, elsewhere, classified,
+  larynx, manifestations, asthma, without
+target_08: obstruction, unspecified, without, mention, hemorrhage, ulcer, perforation,
+  hernia, specified, gangrene, acute, chronic, recurrent, intestine, cholecystitis,
+  teeth, site, gallbladder, jaw, gastric
+target_09: unspecified, specified, lesion, chronic, kidney, female, glomerulonephritis,
+  acute, disorders, genital, urinary, prostate, cervix, classified, elsewhere, renal,
+  disorder, breast, diseases, tract
+target_10: condition, complication, antepartum, mention, unspecified, delivered, without,
+  care, episode, applicable, postpartum, pregnancy, mother, abortion, labor, complicating,
+  childbirth, puerperium, delivery, complicated
+target_11: due, unspecified, dermatitis, specified, ulcer, abscess, skin, erythematous,
+  cellulitis, condition, body, carbuncle, furuncle, contact, eczema, involving, percent,
+  surface, urticaria, tissue
+target_12: region, unspecified, joint, sites, specified, associated, site, foot, hand,
+  ankle, arthropathy, shoulder, upper, forearm, pelvic, thigh, arm, lower, leg, multiple
+target_13: anomalies, congenital, unspecified, specified, anomaly, complete, deficiency,
+  incomplete, without, limb, system, syndrome, lip, partial, stenosis, palate, ear,
+  cleft, bifida, hydrocephalus
+target_14: newborn, fetus, grams, affecting, unspecified, fetal, malnutrition, without,
+  mention, due, hemorrhage, respiratory, neonatal, maternal, birth, placenta, ``,
+  '', perinatal, breast
+target_15: abnormal, nonspecific, unspecified, findings, smear, pain, quadrant, function,
+  squamous, symptoms, swelling, mass, lump, study, involving, examination, results,
+  system, pelvic, rigidity
+target_16: unspecified, fracture, loss, without, open, wound, injury, consciousness,
+  mention, degree, intracranial, skull, body, hemorrhage, level, third, hours, poisoning,
+  part, involving
+target_17: injuring, vehicle, accident, involving, causing, effects, unspecified,
+  therapeutic, use, adverse, motor, poisoning, collision, occupant, due, specified,
+  traffic, person, transport, water
+target_18: history, unspecified, screening, malignant, examination, status, neoplasm,
+  specified, family, suspected, prophylactic, following, born, multiple, birth, hospital,
+  vaccination, need, inoculation, problems
+topk: 30
+use_custom_encoder: true
+use_noise_aware_loss: true
